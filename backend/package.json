@@ -24,6 +24,10 @@
 				"title": "Yeoman UI Generators"
 			},
 			{
+				"command": "loadYeomanUITomer",
+				"title": "Yeoman UI Tomer"
+			},
+			{
 				"command": "yeomanUI.toggleOutput",
 				"title": "Toggle Output",
 				"icon": {

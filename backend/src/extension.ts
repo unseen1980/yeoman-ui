@@ -25,6 +25,7 @@ export function activate(context: vscode.ExtensionContext) {
 	}
 
 	YeomanUIPanel.setPaths(context.extensionPath);
+	context.subscriptions.push(vscode.commands.registerCommand("loadYeomanUITomer", executeLoadYeomanUITomer));
 	context.subscriptions.push(vscode.commands.registerCommand("loadYeomanUI", YeomanUIPanel.loadYeomanUI));
 	context.subscriptions.push(vscode.commands.registerCommand("yeomanUI.toggleOutput", YeomanUIPanel.toggleOutput));
 
@@ -35,6 +36,17 @@ export function activate(context: vscode.ExtensionContext) {
 	});
 }
 
+async function executeLoadYeomanUITomer() {
+	let filter = {type: "tomer"};
+	let messages ={};
+	try {
+	  await vscode.commands.executeCommand("loadYeomanUI", {
+		filter,
+		messages
+	  });
+	} catch (error) {
+	}
+  }
 let channel: vscode.OutputChannel;
 export function getOutputChannel(channelName: string): vscode.OutputChannel {
 	if (!channel) {
